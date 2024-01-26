@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"problems/internal/my_cycle"
+	"problems/internal/str_conv"
 )
 
 func main() {
-	my_cycle.MyFor(0, 1, func() {
-		fmt.Println("jopa")
-	})
+	fmt.Println(str_conv.StrToInt("-12345"))
+
 }
