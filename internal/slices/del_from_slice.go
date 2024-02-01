@@ -12,3 +12,7 @@ func RemoveByValue(arr []int, value int) []int {
 	}
 	return arr
 }
+
+func Shift(arr []int, shift int) []int {
+	return append(arr[shift:], arr[:shift]...)
+}
