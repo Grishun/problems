@@ -1,17 +1,27 @@
 package substrings
 
-func IsSubstring(mainstr, substr string) bool {
-	for i := 0; i <= len(mainstr)-len(substr); i++ {
-		found := true
-		for j := 0; j < len(substr); j++ {
-			if mainstr[i+j] != substr[j] {
-				found = false
+import (
+	"problems/internal/slices"
+	"sort"
+	"strings"
+)
+
+func InArray(array1 []string, array2 []string) (res []string) {
+
+	for _, str := range array2 {
+		for _, substr := range array1 {
+			if strings.Contains(str, substr) {
+				res = append(res, substr)
 				break
 			}
 		}
-		if found {
-			return true
-		}
 	}
-	return false
+	if len(res) == 0 {
+		return nil
+	}
+
+	sort.SliceStable(res, func(i, j int) bool {
+		return res[i] < res[j]
+	})
+	return slices.RemoveRepeating(res)
 }
