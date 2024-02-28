@@ -26,10 +26,11 @@ func FibonacciV2(n int) uint64 {
 }
 
 func FibonacciV3(n int) uint64 {
-	result := make([]int, n+1)
+	result := make([]uint64, n+1)
+	result[0] = 0
 	result[1] = 1
-	for i := 2; i < n+1; i++ {
-		result[i] = result[i-1] + result[i-2]
+	for i := 1; i < n; i++ {
+		result[i+1] = result[i] + result[i-1]
 	}
-	return uint64(result[n])
+	return result[n]
 }
