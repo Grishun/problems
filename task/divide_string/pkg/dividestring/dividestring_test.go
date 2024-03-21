@@ -2,8 +2,9 @@ package dividestring
 
 import (
 	"fmt"
-	"reflect"
 	"testing"
+
+	"github.com/stretchr/testify/require"
 )
 
 func TestDivStr(t *testing.T) {
@@ -31,9 +32,7 @@ func TestDivStr(t *testing.T) {
 		t.Run("case_"+fmt.Sprint(i), func(t *testing.T) {
 			ans := DivStr(testCase.input)
 
-			if !reflect.DeepEqual(ans, testCase.expected) {
-				t.Errorf("expected = %s, actual = %s", testCase.expected, ans)
-			}
+			require.Equal(t, testCase.expected, ans)
 		})
 	}
 }
