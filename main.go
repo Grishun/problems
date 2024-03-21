@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"problems/internal/math"
 )
 
