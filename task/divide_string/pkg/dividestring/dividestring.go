@@ -11,8 +11,7 @@ func DivStr(str string) (res []string) {
 	}
 
 	for i := 0; i < len(str); i += 2 {
-		pair := str[i : i+2]
-		res = append(res, pair)
+		res = append(res, str[i:i+2])
 	}
 
 	return
