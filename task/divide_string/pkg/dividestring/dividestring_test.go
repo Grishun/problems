@@ -1,4 +1,4 @@
-package divide_string
+package dividestring
 
 import (
 	"fmt"

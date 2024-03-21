@@ -1,4 +1,4 @@
-package divide_string
+package dividestring
 
 // DivStr is a function, that divides string to even numbers of substrings.
 // If string has odd number of symbols, function adds `_` to the end of string.

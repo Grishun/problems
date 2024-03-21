@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"problems/task/divide_string/pkg/divide_string"
+	"problems/task/divide_string/pkg/dividestring"
 )
 
 func main() {
-	fmt.Println(divide_string.DivStr("1234"))
+	fmt.Println(dividestring.DivStr("1234"))
 }
