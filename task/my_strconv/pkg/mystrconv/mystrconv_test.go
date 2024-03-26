@@ -3,6 +3,7 @@ package mystrconv
 import (
 	"fmt"
 	"github.com/stretchr/testify/require"
+	"math"
 	"testing"
 )
 
@@ -36,6 +37,7 @@ func TestIntToStr(t *testing.T) {
 		input    int
 		expected string
 	}{
+
 		{
 			input:    0,
 			expected: "0",
@@ -45,12 +47,12 @@ func TestIntToStr(t *testing.T) {
 			expected: "0",
 		},
 		{
-			input:    123,
-			expected: "123",
+			input:    math.MinInt64,
+			expected: "-9223372036854775808",
 		},
 		{
-			input:    -123,
-			expected: "-123",
+			input:    math.MaxInt64,
+			expected: "9223372036854775807",
 		},
 	}
 	for i, testCase := range TestCases {

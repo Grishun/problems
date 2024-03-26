@@ -26,11 +26,9 @@ func StrToInt(str string) (output int) {
 	return output * sign
 }
 
-func lenOfNum(num int) (res uint64) {
-	if num < 0 {
-		num = -num
-	}
-	for num >= 1 {
+func lenOfNum(num int) (res int) {
+
+	for num != 0 {
 		num /= 10
 		res++
 	}
@@ -48,9 +46,11 @@ func IntToStr(num int) string {
 		return "0"
 	}
 	runes := []rune{}
-	for i := 1; uint64(i) <= lenOfNum(num); i++ {
-		digit := numbers.DigOfNum(uint64(num), lenOfNum(num)-uint64(i))
+
+	for i := 1; i <= lenOfNum(num); i++ {
+		digit := numbers.DigOfNum(uint64(num), uint64(lenOfNum(num)-i))
 		runes = append(runes, rune('0'+digit))
 	}
+
 	return sign + string(runes)
 }
