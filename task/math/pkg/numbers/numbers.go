@@ -82,3 +82,12 @@ func FactorialV2(num uint64) uint64 {
 	}
 	return num * FactorialV2(num-1)
 }
+
+// This func sums nth powers of all nums in [startRange, endRange]
+func SumOfNumPow(startRange, endRange, n int) (res float64) {
+	for i := startRange; i <= endRange; i++ {
+		res += math.Pow(float64(i), float64(n))
+	}
+
+	return
+}

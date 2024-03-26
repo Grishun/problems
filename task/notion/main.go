@@ -1,1 +1,4 @@
-package notion
+package main
+
+func main() {
+}
