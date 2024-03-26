@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"problems/task/math/pkg/sequences"
+	"problems/task/math/pkg/numbers"
 )
 
 func main() {
-	fmt.Println(sequences.FibonacciV3(1))
+	fmt.Println(numbers.Decomp(12))
 }

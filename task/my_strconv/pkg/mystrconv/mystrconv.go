@@ -1,12 +1,16 @@
 package mystrconv
 
 import (
+	"errors"
 	"math"
 	"problems/task/math/pkg/numbers"
 	"unicode"
 )
 
-func StrToInt(str string) (output int) {
+func StrToInt(str string) (output int, err error) {
+	if len(str) == 0 {
+		return 0, errors.New("can't convert an empty string")
+	}
 	var (
 		sign = 1
 		i    int
@@ -19,11 +23,11 @@ func StrToInt(str string) (output int) {
 		if unicode.IsNumber(rune(str[i])) {
 			output += (int(str[i]) - 48) * int(math.Pow10(len(str)-i-1))
 		} else {
-			return
+			return 0, errors.New("not a number")
 		}
 	}
 
-	return output * sign
+	return output * sign, nil
 }
 
 func lenOfNum(num int) (res int) {

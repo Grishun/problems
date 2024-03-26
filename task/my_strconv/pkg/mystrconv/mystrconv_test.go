@@ -1,6 +1,7 @@
 package mystrconv
 
 import (
+	"errors"
 	"fmt"
 	"github.com/stretchr/testify/require"
 	"math"
@@ -8,26 +9,56 @@ import (
 )
 
 func TestStrToInt(t *testing.T) {
+
+	type expected struct {
+		expectedNum int
+		expectedErr error
+	}
 	TestCases := []struct {
-		input    string
-		expected int
+		input string
+		exp   expected
 	}{
 		{
-			input:    "0",
-			expected: 0,
+			input: "0",
+			exp: expected{
+				expectedNum: 0,
+				expectedErr: nil,
+			},
 		},
 		{
-			input:    "123",
-			expected: 123,
+			input: "",
+			exp: expected{
+				expectedNum: 0,
+				expectedErr: errors.New("can't convert an empty string"),
+			},
 		},
 		{
-			input:    "-123",
-			expected: -123,
+			input: "-0",
+			exp: expected{
+				expectedNum: 0,
+				expectedErr: nil,
+			},
+		},
+		{
+			input: "9223372036854775807",
+			exp: expected{
+				expectedNum: math.MaxInt64,
+				expectedErr: nil,
+			},
+		},
+		{
+			input: "-9223372036854775808",
+			exp: expected{
+				expectedNum: math.MinInt64,
+				expectedErr: nil,
+			},
 		},
 	}
 	for i, testCase := range TestCases {
 		t.Run("case_"+fmt.Sprint(i), func(t *testing.T) {
-			require.Equal(t, testCase.expected, StrToInt(testCase.input))
+			actualNum, actualErr := StrToInt(testCase.input)
+			require.Equal(t, testCase.exp.expectedNum, actualNum)
+			require.Equal(t, testCase.exp.expectedErr, actualErr)
 		})
 	}
 }
