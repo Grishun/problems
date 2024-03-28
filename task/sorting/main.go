@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(sort.SelectionSort([]int{5, 4, 3, 2, 1, -1}))
+	fmt.Println(sort.BinSearch([]int{0, 1, 2, 3}, 0))
 }
