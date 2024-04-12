@@ -1,7 +1,7 @@
 package productfib
 
 import (
-	"problems/task/math/pkg/sequences"
+	"github.com/Grishun/problems/task/math/pkg/sequences"
 )
 
 type fib struct {

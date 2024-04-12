@@ -1,7 +1,7 @@
 package substrings
 
 import (
-	"problems/task/slices/pkg/slices"
+	"github.com/Grishun/problems/task/slices/pkg/slices"
 	"sort"
 	"strings"
 )

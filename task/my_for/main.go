@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"problems/task/my_for/pkg/myfor"
+	"github.com/Grishun/problems/task/my_for/pkg/myfor"
 )
 
 func main() {

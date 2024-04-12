@@ -8,6 +8,7 @@ import (
 // and returns index of the value in the array.
 // If array doesn't contain the value, func returns an error
 func BinSearch(arr []int, value int) (index int, err error) {
+
 	switch {
 	case len(arr) == 0:
 		return 0, errors.New("the array is empty")

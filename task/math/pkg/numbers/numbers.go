@@ -91,3 +91,19 @@ func SumOfNumPow(startRange, endRange, n int) (res float64) {
 
 	return
 }
+
+// Gcd - Gratest Common Divider
+func Gcd(a, b int) int {
+
+	for a%b != 0 {
+		r := a % b
+		a, b = b, r
+	}
+
+	return b
+}
+
+// Lcm -Least Common Multiple
+func Lcm(a, b int) int {
+	return (a * b) / (Gcd(a, b))
+}

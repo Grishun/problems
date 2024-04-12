@@ -2,8 +2,8 @@ package slices
 
 import (
 	"errors"
+	"github.com/Grishun/problems/task/my_strconv/pkg/mystrconv"
 	"github.com/stretchr/testify/require"
-	"problems/task/my_strconv/pkg/mystrconv"
 	"testing"
 )
 

@@ -2,9 +2,11 @@ package main
 
 import (
 	"fmt"
-	"problems/task/math/pkg/numbers"
+
+	"github.com/Grishun/problems/task/sorting/pkg/sort"
 )
 
 func main() {
-	fmt.Println(numbers.Decomp(12))
+	arr := []int{9, 6, 3, 2, 4}
+	fmt.Println(sort.QuickSort(arr))
 }

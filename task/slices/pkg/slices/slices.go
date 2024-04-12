@@ -1,6 +1,9 @@
 package slices
 
-import "errors"
+import (
+	"errors"
+	"sort"
+)
 
 func RemoveByIndex(arr []int, i uint64) (res []int, err error) {
 	switch {
@@ -48,13 +51,10 @@ func RemoveRepeating(arr []string) []string {
 	return result
 }
 
-//func RemoveByIndexV2(arr []interface{}, i uint64) (res []interface{}, err error) {
-//	switch {
-//	case len(arr) == 0:
-//		return nil, errors.New("the array is empty")
-//	case int(i) >= len(arr):
-//		return nil, errors.New("i out of range")
-//	default:
-//		return append(arr[:i], arr[i+1:]...), nil
-//	}
-//}
+func InsertionV1(arr []int, value int) (res []int) {
+	
+	index := sort.SearchInts(arr, value)
+
+	return append(arr[:index], append([]int{value}, arr[index:]...)...)
+
+}
