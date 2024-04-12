@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"problems/task/codewars/divide_string/pkg/dividestring"
+	"github.com/Grishun/problems/task/codewars/divide_string/pkg/dividestring"
 )
 
 func main() {

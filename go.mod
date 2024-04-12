@@ -1,4 +1,4 @@
-module problems
+module github.com/Grishun/problems
 
 go 1.19
 

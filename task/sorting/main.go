@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"problems/task/sorting/pkg/sort"
+	"github.com/Grishun/problems/task/sorting/pkg/sort"
 )
 
 func main() {

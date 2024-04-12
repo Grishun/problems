@@ -2,8 +2,8 @@ package mystrconv
 
 import (
 	"errors"
+	"github.com/Grishun/problems/task/math/pkg/numbers"
 	"math"
-	"problems/task/math/pkg/numbers"
 	"unicode"
 )
 
