@@ -4,7 +4,7 @@ import (
 	"math"
 )
 
-// This func takes a number, and returns all its dividers (only positive)
+// Decomp func takes a number, and returns all its dividers (only positive)
 func Decomp(num int) (dividers []int) {
 	if num < 0 {
 		num = -num
@@ -19,7 +19,7 @@ func Decomp(num int) (dividers []int) {
 	return dividers
 }
 
-// This func takes a number, and returns the sum of its digits
+// DigSum func takes a number, and returns the sum of its digits
 func DigSum(num int) int {
 	if num < 0 {
 		num = -num
@@ -32,7 +32,7 @@ func DigSum(num int) int {
 	return sum
 }
 
-// This func checks if a number is prime
+// IsPrime func checks if a number is prime
 func IsPrime(num int) bool {
 	if num < 0 {
 		num = -num
@@ -50,7 +50,7 @@ func IsPrime(num int) bool {
 	return true
 }
 
-// This func takes a number, and returns nth digit of it,
+// DigOfNum func takes a number, and returns nth digit of it,
 // counting from the last digit (last digit has index 0)
 //
 // Example:
@@ -62,7 +62,7 @@ func DigOfNum(num, n uint64) uint64 {
 	return (num%uint64(math.Pow10(int(n+1))) - num%uint64(math.Pow10(int(n)))) / uint64(math.Pow10(int(n)))
 }
 
-// This func takes a number, and returns its factorial
+// FactorialV1 func takes a number, and returns its factorial
 func FactorialV1(num uint64) uint64 {
 	if num == 0 {
 		return 1
@@ -83,7 +83,7 @@ func FactorialV2(num uint64) uint64 {
 	return num * FactorialV2(num-1)
 }
 
-// This func sums nth powers of all nums in [startRange, endRange]
+// SumOfNumPow func sums nth powers of all nums in [startRange, endRange]
 func SumOfNumPow(startRange, endRange, n int) (res float64) {
 	for i := startRange; i <= endRange; i++ {
 		res += math.Pow(float64(i), float64(n))
