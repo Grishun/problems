@@ -94,10 +94,18 @@ func SumOfNumPow(startRange, endRange, n int) (res float64) {
 
 // Gcd - Gratest Common Divider
 func Gcd(a, b int) int {
+	if a < b {
+		a, b = b, a
+	} else if a == 0 || b == 0 {
+		return 0
+	}
 
-	for a%b != 0 {
-		r := a % b
-		a, b = b, r
+	r := a % b
+
+	for r != 0 {
+		a = b
+		b = r
+		r = a % b
 	}
 
 	return b
