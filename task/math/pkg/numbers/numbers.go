@@ -2,6 +2,7 @@ package numbers
 
 import (
 	"math"
+	"strconv"
 )
 
 // Decomp func takes a number, and returns all its dividers (only positive)
@@ -62,6 +63,18 @@ func DigOfNum(num, n uint64) uint64 {
 	return (num%uint64(math.Pow10(int(n+1))) - num%uint64(math.Pow10(int(n)))) / uint64(math.Pow10(int(n)))
 }
 
+func ReverseNum(num int) (res int) {
+	sign := 1
+	if num < 0 {
+		num = -num
+		sign = -1
+	}
+	for i := 0; i <= len(strconv.Itoa(num))-1; i++ {
+		res += int(DigOfNum(uint64(num), uint64(i))) * int(math.Pow10(len(strconv.Itoa(num))-1-i))
+	}
+	return res * sign
+}
+
 // FactorialV1 func takes a number, and returns its factorial
 func FactorialV1(num uint64) uint64 {
 	if num == 0 {
@@ -111,7 +124,7 @@ func Gcd(a, b int) int {
 	return b
 }
 
-// Lcm -Least Common Multiple
+// Lcm - Least Common Multiple
 func Lcm(a, b int) int {
 	return (a * b) / (Gcd(a, b))
 }

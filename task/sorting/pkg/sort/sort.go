@@ -22,34 +22,34 @@ func BubbleSort(nums []int) []int {
 	return nums
 }
 
+func Transfer(arr []int, i, j int) {
+	if i < j {
+		arr = append(arr[:i], append(arr[i+1:j], append([]int{arr[i]}, arr[j:]...)...)...)
+	} else {
+		arr = append(arr[:j], append([]int{arr[i]}, arr[j:i]...)...)
+	}
+}
+
 func swap(arr []int, i, j int) {
 	arr[i], arr[j] = arr[j], arr[i]
 }
 
-func partition(arr []int, start, end int) int {
-	pivot := arr[len(arr)-1]
-	pivotIndex := len(arr) - 1
-	i := start - 1
+func Partition(arr []int, startSort, endSort int) {
+	pivot := arr[len(arr)/2]
+	pivotIndex := len(arr) / 2
 
-	for j := 0; j < end; j++ {
-		if arr[j] < pivot {
-			i++
-			swap(arr, i, j)
+	for i, j := startSort, endSort; i < j; {
+		if arr[i] > pivot {
+			Transfer(arr, i, pivotIndex+1)
+		} else if arr[j] < pivot {
+			Transfer(arr, j, pivotIndex-1)
+		} else {
+			i, j = i+1, j-1
 		}
 	}
 
-	swap(arr, i+1, pivotIndex)
-
-	return i + 1
 }
 
-func QuickSort(nums []int) []int {
+func quickSort(arr []int, startSort, endSort int) {
 
-	pivot := partition(nums, 0, len(nums)-1)
-	if pivot > 0 {
-		QuickSort(nums[:pivot])
-	}
-	QuickSort(nums[pivot+1:])
-
-	return nums
 }

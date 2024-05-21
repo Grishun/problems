@@ -6,5 +6,9 @@ import (
 )
 
 func main() {
-	fmt.Println(sort.BinSearch([]int{0, 1, 2, 3}, 0))
+	arr := []int{1, 3, 2, 1, 2, 3, 2, 1}
+
+	sort.Partition(arr, 0, len(arr)-1)
+
+	fmt.Println(arr)
 }
