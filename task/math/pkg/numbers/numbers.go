@@ -2,6 +2,7 @@ package numbers
 
 import (
 	"math"
+	"sort"
 	"strconv"
 )
 
@@ -171,25 +172,20 @@ func PrimeNums(n int) (res []int) {
 	return
 }
 
-func DecompNum(num int) (primeDivs, divs []int) {
+func DecompNums(num int) (divs []int) {
 
-	primes := PrimeNums(num + 1)
+	for i := 1; i*i <= num; i++ {
+		if num%i == 0 {
+			divs = append(divs, i)
 
-	//primeDivs := make([]int, 0)
-
-	for i := 0; i < len(primes); i++ {
-		if num%primes[i] == 0 {
-			primeDivs = append(divs, primes[i])
+			if i != num/i {
+				divs = append(divs, num/i)
+			}
 		}
 	}
 
-	for _, v := range primeDivs {
-		Num := num
-		for Num%v == 0 {
-			Num /= v
-			divs = append(divs, Num)
-		}
-	}
+	sort.Ints(divs)
 
-	return primeDivs, divs
+	return
+
 }
