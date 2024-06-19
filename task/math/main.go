@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(numbers.DecompNum(150))
+	fmt.Println(numbers.PerfectNums(1000000))
 }
