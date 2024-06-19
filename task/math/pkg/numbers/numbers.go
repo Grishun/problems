@@ -107,24 +107,47 @@ func SumOfNumPow(startRange, endRange, n int) (res float64) {
 
 // Gcd - Gratest Common Divider
 func Gcd(a, b int) int {
-	if a < b {
+
+	if b > a {
 		a, b = b, a
-	} else if a == 0 || b == 0 {
-		return 0
 	}
 
 	r := a % b
 
 	for r != 0 {
-		a = b
-		b = r
+		a, b = b, r
 		r = a % b
+	}
+
+	if b < 0 {
+		b = -b
 	}
 
 	return b
 }
 
-// Lcm - Least Common Multiple
-func Lcm(a, b int) int {
-	return (a * b) / (Gcd(a, b))
+func LenOfNum(num int) (res int) {
+	if num < 0 {
+		num = -num
+	}
+	for num > 0 {
+		num /= 10
+		res++
+	}
+
+	return
 }
+
+// Lcm - Least Common Multiple
+//func Lcm(a, b int) int {
+//	return (a * b) / (Gcd(a, b))
+//}
+//
+//func PrimeNums(n int) []int {
+//
+//	for i := 2; i < int(math.Sqrt(float64(n))); i++ {
+//		if IsPrime(i) {
+//
+//		}
+//	}
+//}

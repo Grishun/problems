@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"math"
+	"github.com/Grishun/problems/task/math/pkg/numbers"
 )
 
 func main() {
-	fmt.Println(math.MaxInt32)
+	fmt.Println(numbers.LenOfNum(-123))
 }
