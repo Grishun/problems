@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(numbers.LenOfNum(-123))
+	fmt.Println(numbers.DecompNum(18))
 }

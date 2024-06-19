@@ -139,15 +139,57 @@ func LenOfNum(num int) (res int) {
 }
 
 // Lcm - Least Common Multiple
-//func Lcm(a, b int) int {
-//	return (a * b) / (Gcd(a, b))
-//}
-//
-//func PrimeNums(n int) []int {
-//
-//	for i := 2; i < int(math.Sqrt(float64(n))); i++ {
-//		if IsPrime(i) {
-//
-//		}
-//	}
-//}
+func Lcm(a, b int) int {
+	return (a * b) / (Gcd(a, b))
+}
+
+func PrimeNums(n int) (res []int) {
+	if n <= 1 {
+		return
+	}
+
+	isPrime := make([]bool, n)
+
+	for i := 2; i < n; i++ {
+		isPrime[i] = true
+	}
+
+	for p := 2; p*p < n; p++ {
+		if isPrime[p] {
+			for mult := p * p; mult < n; mult += p {
+				isPrime[mult] = false
+			}
+		}
+	}
+
+	for index, value := range isPrime {
+		if value {
+			res = append(res, index)
+		}
+	}
+
+	return
+}
+
+func DecompNum(num int) (primeDivs, divs []int) {
+
+	primes := PrimeNums(num + 1)
+
+	//primeDivs := make([]int, 0)
+
+	for i := 0; i < len(primes); i++ {
+		if num%primes[i] == 0 {
+			primeDivs = append(divs, primes[i])
+		}
+	}
+
+	for _, v := range primeDivs {
+		Num := num
+		for Num%v == 0 {
+			Num /= v
+			divs = append(divs, Num)
+		}
+	}
+
+	return primeDivs, divs
+}
